@@ -30,7 +30,7 @@ public class Person {
 	private String pin = "";
 	private Date registrationDate = new Date();
 
-	private List<Car> cars = new ArrayList<Car>();
+	private List<Computer> computers = new ArrayList<Computer>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -66,10 +66,10 @@ public class Person {
 
 	// Be careful here, both with lazy and eager fetch type
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	public List<Car> getCars() {
-		return cars;
+	public List<Computer> getComputers() {
+		return computers;
 	}
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
+	public void setComputers(List<Computer> computers) {
+		this.computers = computers;
 	}
 }

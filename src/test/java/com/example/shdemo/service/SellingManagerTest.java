@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.shdemo.domain.Car;
+import com.example.shdemo.domain.Computer;
 import com.example.shdemo.domain.Person;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -64,24 +64,24 @@ public class SellingManagerTest {
 	}
 
 	@Test
-	public void addCarCheck() {
+	public void addComputerCheck() {
 
-		Car car = new Car();
-		car.setMake(MAKE_1);
-		car.setModel(MODEL_1);
+		Computer computer = new Computer();
+		computer.setMake(MAKE_1);
+		computer.setModel(MODEL_1);
 		// ... other properties here
 
-		Long carId = sellingManager.addNewCar(car);
+		Long computerId = sellingManager.addNewComputer(computer);
 
-		Car retrievedCar = sellingManager.findCarById(carId);
-		assertEquals(MAKE_1, retrievedCar.getMake());
-		assertEquals(MODEL_1, retrievedCar.getModel());
+		Computer retrievedComputer = sellingManager.findComputerById(computerId);
+		assertEquals(MAKE_1, retrievedComputer.getMake());
+		assertEquals(MODEL_1, retrievedComputer.getModel());
 		// ... check other properties here
 
 	}
 
 	@Test
-	public void sellCarCheck() {
+	public void sellComputerCheck() {
 
 		Person person = new Person();
 		person.setFirstName(NAME_2);
@@ -91,23 +91,23 @@ public class SellingManagerTest {
 
 		Person retrievedPerson = sellingManager.findClientByPin(PIN_2);
 
-		Car car = new Car();
-		car.setMake(MAKE_2);
-		car.setModel(MODEL_2);
+		Computer computer = new Computer();
+		computer.setMake(MAKE_2);
+		computer.setModel(MODEL_2);
 
-		Long carId = sellingManager.addNewCar(car);
+		Long computerId = sellingManager.addNewComputer(computer);
 
-		sellingManager.sellCar(retrievedPerson.getId(), carId);
+		sellingManager.sellComputer(retrievedPerson.getId(), computerId);
 
-		List<Car> ownedCars = sellingManager.getOwnedCars(retrievedPerson);
+		List<Computer> ownedcomputers = sellingManager.getOwnedComputers(retrievedPerson);
 
-		assertEquals(1, ownedCars.size());
-		assertEquals(MAKE_2, ownedCars.get(0).getMake());
-		assertEquals(MODEL_2, ownedCars.get(0).getModel());
+		assertEquals(1, ownedcomputers.size());
+		assertEquals(MAKE_2, ownedcomputers.get(0).getMake());
+		assertEquals(MODEL_2, ownedcomputers.get(0).getModel());
 	}
 
 	// @Test -
-	public void disposeCarCheck() {
+	public void disposecomputerCheck() {
 		// Do it yourself
 	}
 

@@ -2,7 +2,7 @@ package com.example.shdemo.service;
 
 import java.util.List;
 
-import com.example.shdemo.domain.Car;
+import com.example.shdemo.domain.Computer;
 import com.example.shdemo.domain.Person;
 
 public interface SellingManager {
@@ -12,12 +12,12 @@ public interface SellingManager {
 	void deleteClient(Person person);
 	Person findClientByPin(String pin);
 	
-	Long addNewCar(Car car);
-	List<Car> getAvailableCars();
-	void disposeCar(Person person, Car car);
-	Car findCarById(Long id);
+	Long addNewComputer(Computer computer);
+	List<Computer> getAvailableComputers();
+	void disposeComputer(Person person, Computer computer);
+	Computer findComputerById(Long id);
 
-	List<Car> getOwnedCars(Person person);
-	void sellCar(Long personId, Long carId);
+	List<Computer> getOwnedComputers(Person person);
+	void sellComputer(Long personId, Long computerId);
 
 }
